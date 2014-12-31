@@ -1,3 +1,19 @@
+*~
+#*
+*#
+.#*
+.classpath
+.project
+.settings
+.springBeans
+.gradle
+build
+bin
+/target/
+git.properties
+.idea
+*.iml
+
 *.class
 
 # Mobile Tools for Java (J2ME)
