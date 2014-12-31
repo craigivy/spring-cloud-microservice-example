@@ -1,0 +1,12 @@
+server:
+  port: 8761
+security:
+  user:
+    password: ${eureka.password:${SECURITY_USER_PASSWORD:password}}
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>File List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1>My Files</h1>
+
+<h2>Upload File</h2>
+
+<form action="upload" th:action="@{/files/upload}" method="post" enctype="multipart/form-data">
+    <input type="file" name="theFile" />
+    <input type="submit" />
+</form>
+
+<h2>File List</h2>
+<table>
+    <tr>
+        <th>Action</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Id</th>
+    </tr>
+    <tr th:each="remoteFile : ${remoteFiles}">
+        <td>
+            <a th:href="@{'/files/download/' + ${remoteFile.id}}">V</a>
+            <a th:href="@{'/files/delete/' + ${remoteFile.id}}">X</a>
+        </td>
+        <td th:text="${remoteFile.name}"></td>
+        <td th:text="${remoteFile.createDate}"></td>
+        <td th:text="${remoteFile.id}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

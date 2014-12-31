@@ -1,0 +1,25 @@
+server:
+  port: 9090
+
+eureka:
+  instance:
+#    leaseRenewalIntervalInSeconds: 10
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://user:password@localhost:8761/eureka/
+
+# for feign, not needed for restTemplate
+#https://github.com/brenuart/spring-boot-pastebin/blob/master/feign/sample-helloclient/src/main/resources/application.yml
+# feign client not working? - http://stackoverflow.com/questions/27483866/spring-cloud-with-feign-ribbon-eureka-unable-to-discover-service-instances
+remotefilesvc:
+  ribbon:
+    # not used by RestTemplate with ribbon-eureka, but used by feign.  Seems to be a list of fallback servers
+    listOfServers:
+#    listOfServers: localhost:8081, localhost:8082
+    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+
+    # the eureka vipAddress of the target service (Disabled)
+    DeploymentContextBasedVipAddresses: remotefilesvc
