@@ -2,15 +2,13 @@ spring-cloud-microservice-example
 =================================
 
 Spring cloud microservice example using Netflix OSS.
-
 Currently uses eureka, ribbon, feign, and hystrix from the Netflix OSS stack.
 
 Modules
 -------
 
 ### eureka
-Starts the eureka server for service discovery
-<http://localhost:8761/>
+Starts the eureka server for service discovery (<http://localhost:8761/>)
 
 ### service
 A microservice for storing small files
