@@ -8,7 +8,7 @@ Modules
 -------
 
 ### eureka
-Starts the eureka server for service discovery (<http://localhost:8761/>)
+Starts the eureka server for service discovery (<http://localhost:8761/> user=user, password=password)
 
 ### service
 A microservice for storing small files (<http://localhost:8081/remoteFiles/>)
