@@ -28,4 +28,11 @@ Prerequisite
 
 Run
 ---
-Compile and run each module by executing the command mvn spring-boot:run
+Compile and run each module by executing the command "mvn spring-boot:run"
+to run on another port use "spring-boot:run -Dserver.port=[port]"
+
+
+Experimental
+-------------
+Create a docker instance.  Currently this is supported in the service module using the spotify docker plugin.
+Run "mvn clean package docker:build" docker target is created.
