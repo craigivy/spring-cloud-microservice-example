@@ -1,0 +1,40 @@
+server:
+  port: 8081
+
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/files
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://user:password@localhost:8761/eureka/
+
+logging:
+  level:
+    proto.ms: 'DEBUG'
+    com.netflix.discovery: 'OFF'
+
+amazon:
+  iam:
+     accesskey: accesskey
+     secretkey: "secretkey"
+  s3:
+    bucket: springms
+  dynamodb:
+    endpoint: "dynamodb.us-west-2.amazonaws.com"
