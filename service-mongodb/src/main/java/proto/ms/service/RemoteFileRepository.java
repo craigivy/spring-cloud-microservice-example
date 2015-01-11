@@ -5,5 +5,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 /**
  * Created by civerson on 12/21/14.
  */
-public interface RefactorFileRepository extends PagingAndSortingRepository<RemoteFile, String> {
+public interface RemoteFileRepository extends PagingAndSortingRepository<RemoteFile, String> {
 }

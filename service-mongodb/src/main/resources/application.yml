@@ -29,10 +29,3 @@ logging:
   level:
     proto.ms: 'DEBUG'
     com.netflix.discovery: 'OFF'
-
-aws:
-  iam:
-    accessKey: access1
-    secretKey: secret1
-  s3:
-    bucket: bucket1

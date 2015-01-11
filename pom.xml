@@ -16,7 +16,9 @@
 
 	<modules>
 		<module>eureka</module>
-		<module>service</module>
+		<module>service-aws</module>
+		<module>service-mongodb</module>
+		<module>service-aws</module>
 		<module>ui</module>
 	</modules>
 
