@@ -55,24 +55,4 @@ public class S3FileService implements FileService {
         amazonS3Client.deleteObject(bucket, id);
     }
 
-//    @Configuration
-//    static class AppConfig {
-//        @Value("${aws.iam.accessKey}")
-//        String accessKey;
-//        @Value("${aws.iam.secretKey}")
-//        String secretKey;
-//
-//        @Bean
-//        AWSCredentials awsCredentials() {
-//            return new BasicAWSCredentials(accessKey, secretKey);
-//        }
-//
-//        @Bean
-//        AmazonS3Client amazonS3Client() {
-//            AmazonS3Client s3Client = new AmazonS3Client(awsCredentials());
-//            Region usWest2 = Region.getRegion(Regions.US_WEST_2);
-//            s3Client.setRegion(usWest2);
-//            return s3Client;
-//        }
-//    }
 }
