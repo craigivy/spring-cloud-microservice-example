@@ -12,7 +12,7 @@
 	<artifactId>parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>parent</name>
+	<name>micorservice-example-parent</name>
 
 	<modules>
 		<module>eureka</module>
@@ -116,6 +116,30 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
+			<!-- https://github.com/spotify/docker-maven-plugin -->
+			<!-- mvn clean package docker:build -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.1.1</version>
+				<configuration>
+					<imageName>${project.build.finalName}</imageName>
+					<baseImage>dockerfile/java:oracle-java8</baseImage>
+					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+					<pushImage>false</pushImage>
+
+					<!-- copy the service's jar file from target into the root directory of the image -->
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 

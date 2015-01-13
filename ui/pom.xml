@@ -53,4 +53,20 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<!-- https://github.com/spotify/docker-maven-plugin -->
+			<!-- mvn clean package docker:build -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<exposes>
+						<expose>9090</expose>
+					</exposes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
