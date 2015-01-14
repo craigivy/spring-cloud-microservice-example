@@ -13,9 +13,6 @@ endpoints:
 spring:
   main:
     show_banner: false
-  data:
-    mongodb:
-      uri: mongodb://localhost/files
 
 eureka:
   instance:
