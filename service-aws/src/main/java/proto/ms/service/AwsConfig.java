@@ -7,6 +7,7 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.s3.AmazonS3Client;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.socialsignin.spring.data.dynamodb.core.DynamoDBOperations;
 import org.socialsignin.spring.data.dynamodb.core.DynamoDBTemplate;
@@ -20,17 +21,18 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 /**
  * Created by civerson on 1/10/15.
  */
+@Slf4j
 @Configuration
 @EnableDynamoDBRepositories(basePackages = "proto.ms.service",dynamoDBOperationsRef="dynamoDBOperations")
 public class AwsConfig {
 
-    @Value("${amazon.dynamodb.endpoint}")
+    @Value("${aws.dynamodb.endpoint}")
     private String amazonDynamoDBEndpoint;
 
-    @Value("${amazon.iam.accesskey}")
+    @Value("${aws.access.key}")
     private String amazonAWSAccessKey;
 
-    @Value("${amazon.iam.secretkey}")
+    @Value("${aws.secret.key}")
     private String amazonAWSSecretKey;
 
     @Bean
@@ -51,7 +53,9 @@ public class AwsConfig {
     }
 
     @Bean
-    public AWSCredentials awsCredentials() {
+    public AWSCredentials awsCredentials()
+    {
+        log.debug("awsAccessKey is = " + amazonAWSAccessKey);
         return new BasicAWSCredentials(amazonAWSAccessKey, amazonAWSSecretKey);
     }
 

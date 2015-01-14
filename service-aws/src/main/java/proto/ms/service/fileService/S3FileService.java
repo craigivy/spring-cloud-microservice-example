@@ -24,7 +24,7 @@ import java.util.UUID;
 @Component
 public class S3FileService implements FileService {
 
-    @Value("${amazon.s3.bucket}")
+    @Value("${aws.s3.bucket}")
     String bucket;
 
     @Autowired

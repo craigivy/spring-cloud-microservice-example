@@ -11,6 +11,8 @@ endpoints:
     sensitive: false
 
 spring:
+  main:
+    show_banner: false
   data:
     mongodb:
       uri: mongodb://localhost/files
@@ -30,11 +32,10 @@ logging:
     proto.ms: 'DEBUG'
     com.netflix.discovery: 'OFF'
 
-amazon:
-  iam:
-     accesskey: accesskey
-     secretkey: "secretkey"
+aws:
+  access.key: ${AWS_ACCESS_KEY}
+  secret.key: ${AWS_SECRET_KEY}
   s3:
-    bucket: springms
+    bucket: remotefilesvc
   dynamodb:
     endpoint: "dynamodb.us-west-2.amazonaws.com"
