@@ -29,7 +29,7 @@ public class AwsConfig {
     @Value("${aws.dynamodb.endpoint}")
     private String amazonDynamoDBEndpoint;
 
-    @Value("${aws.access.key}")
+    @Value("${aws.access.key.id}")
     private String amazonAWSAccessKey;
 
     @Value("${aws.secret.key}")

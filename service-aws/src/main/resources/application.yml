@@ -30,7 +30,7 @@ logging:
     com.netflix.discovery: 'OFF'
 
 aws:
-  access.key: ${AWS_ACCESS_KEY}
+  access.key.id: ${AWS_ACCESS_KEY_ID}
   secret.key: ${AWS_SECRET_KEY}
   s3:
     bucket: remotefilesvc
