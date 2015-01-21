@@ -44,10 +44,11 @@ To run on another port use "spring-boot:run -Dserver.port=[port]"
 Docker instance.
 -------------
 Currently this is supported in the service module using the spotify docker plugin.
-Run "mvn clean package docker:build" docker target is created.
-In target/Docker directory zip the results of the modules and
-Upload the docker zip by creating a docker beanstalk entry for each.
+- Run "mvn clean package docker:build" docker target is created.
+- In target/Docker directory zip the results of the modules and
+- Upload the docker zip by creating a docker beanstalk entry for each.
 
-Set eureka's url in the ui and service module with EUREKA_CLIENT_SERVICEURL_DEFAULTZONE environment property.
-Set AWS_ACCESS_KEY_ID and AWS_SECRET_KEY in service-aws using environment variables.
-For routing purposes you may also need to set EUREKA_INSTANCE_HOSTNAME and EUREKA_INSTANCE_NONSECUREPORT.
+Environment Variables
+- Set eureka's url in the ui and service module with EUREKA_CLIENT_SERVICEURL_DEFAULTZONE environment property.
+- Set AWS_ACCESS_KEY_ID and AWS_SECRET_KEY in service-aws using environment variables.
+- For routing purposes you may also need to set EUREKA_INSTANCE_HOSTNAME and EUREKA_INSTANCE_NONSECUREPORT.
