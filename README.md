@@ -19,10 +19,11 @@ A microservice for storing small files (<http://localhost:8081/remoteFiles/>)
 A microservice for storing small files (<http://localhost:8081/remoteFiles/>)
 - Registers remote file service with Eureka
 - Uses AWS services (DynamoDB and S3) for persistence of data and files
-- Setup DynamoDB table named remotefile
-- Setup S3 bucket named remotefilesvc
 - make sure to set environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_KEY
 
+Manual setup
+- Setup DynamoDB table named remotefile
+- Setup S3 bucket named remotefilesvc
 
 ### ui
 A simple UI to upload and download files (<http://localhost:9090/>)
