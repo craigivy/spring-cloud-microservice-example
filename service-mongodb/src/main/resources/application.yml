@@ -1,6 +1,12 @@
+spring.profiles.active: production
+
 server:
   port: 8081
-
+#  ssl:
+#    protocol: "TLSv1.2"
+#    key-store: "classpath:tomcat.keystore"
+#    key-store-password: password
+#    key-password: password
 
 endpoints:
   restart:
@@ -17,6 +23,10 @@ spring:
 
 eureka:
   instance:
+#    nonSecurePortEnabled: false
+#    securePortEnabled: true
+#    securePort: 8081
+
     leaseRenewalIntervalInSeconds: 10
     metadataMap:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
@@ -29,3 +39,16 @@ logging:
   level:
     proto.ms: 'DEBUG'
     com.netflix.discovery: 'OFF'
+
+
+---
+
+spring:
+    profiles: production
+
+#eureka:
+#  instance:
+#    nonSecurePortEnabled: false
+#    securePortEnabled: true
+#    securePort: 8081
+##    nonSecurePort: 81
